@@ -1,9 +1,9 @@
 import pandas as pd
-from flatten_tweets import flatten_tweets
+from explode_tweets import explode_tweets
 from select_text import select_text
 
 # flatten tweets
-tweets = flatten_tweets(tweets_data)
+tweets = explode_tweets(tweets_data)
 
 # select text
 tweets = select_text(tweets)
