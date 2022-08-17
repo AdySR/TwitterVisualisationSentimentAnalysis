@@ -14,12 +14,13 @@ BEARER_TOKEN=F"AAAAAAAAAAAAAAAAAAAAAPX4fwEAAAAA4Xl%2F18Fu3Oi7nphn%2Fg5IfC%2BFWFs
 
 client = tweepy.Client(bearer_token=BEARER_TOKEN)
 
-query ='covid -is:retweet'
+query ='#covid -is:retweet'
 
 response = client.search_recent_tweets(query=query, max_results=10, tweet_fields=['created_at','lang'], expansions=['author_id'] )
+print(response)
+print(type(response))
 
-# 
-#print(response)
+json_response = response.json()
 
 # users = {u['id']: U for U in response.includes['users']}
 
@@ -27,7 +28,7 @@ response = client.search_recent_tweets(query=query, max_results=10, tweet_fields
 # for tweet in response.data:
 #     print(tweet.text)
 
-j=response.json()
+# j=response.json()
 
 # df = json_normalize(response)
 
