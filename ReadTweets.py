@@ -17,9 +17,12 @@ BEARER_TOKEN=F"AAAAAAAAAAAAAAAAAAAAAPX4fwEAAAAA4Xl%2F18Fu3Oi7nphn%2Fg5IfC%2BFWFs
 
 client = tweepy.Client(bearer_token=BEARER_TOKEN)
 
-query ='#ib808282 -is:retweet'
+query ='#centricconsulting -is:retweet'
 
 response = client.search_recent_tweets(query=query, max_results=50, tweet_fields=['created_at','lang'], expansions=['author_id'] )
+
+print(response)
+
 try:
     if (response.data)==None:
         print("Empty response. Exception block begin >>")
@@ -34,4 +37,5 @@ try:
         df_raw_tweet.to_csv('recent_tweets.csv')
 
 except:
-    print("\n   >> Check the query argument, API response is null for the query provided")    
+    print(""" >> Check the API query.
+              >> Else check the output file if its already opened   """)
